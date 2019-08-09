@@ -37,8 +37,8 @@ pre {
   width: 90%;
   font-family: monospace;
   font-size: inherit;
-  background-color: rgb(20,20,20);
-  border: 2px solid violet;
+  background-color: rgb(50,50,50);
+  border: 2px solid black;
   border-radius: 25px;
   overflow: auto;
   -ms-overflow-style: scrollbar;
@@ -56,10 +56,10 @@ pre code {
 
 code {
   padding: 0 5px;
-  color: #282c34;
+  color: rgb(220,220,220);
   font-size: 16px;
-  background-color: lightGray;
-  border: 1px solid gray;
+  background-color: rgb(50,50,50);
+  border: 1px solid black;
   border-radius: 5px;
 }
 
@@ -116,10 +116,9 @@ header {
 }
 
 .primary-navigation a:hover {
-  color: white;
-  -webkit-text-stroke-color: violet;
+  color: violet;
+  -webkit-text-stroke-color: white;
 }
-
 
 /* =============================================================================
                                   <main>
@@ -134,13 +133,15 @@ main {
 }
 
 article {
-  margin: 0;
+  margin: 0 0 50px 0;
   padding: 25px;
   color: #333;
   text-align: left;
-  background-color: rgb(255,255,255);
+  background-color: rgba(220,220,220,0.95);
   border: 2px solid #61DAFB;
   border-radius: 25px;
+  box-shadow: -5px 5px 5px rgba(0,0,0,0.35),
+               5px 5px 5px rgba(0,0,0,0.35);
 }
 
 article p {
@@ -149,14 +150,13 @@ article p {
 }
 
 article a {
-  color: #61DAFB;
+  color: violet;
   text-decoration: none;
 }
 
 article a:hover {
   text-decoration: underline;
 }
-
 
 /* =============================================================================
                                   <section>
@@ -177,10 +177,11 @@ section h1 {
   font-size: 5vw;
   font-family: Montserrat;
   letter-spacing: 3px;
+  line-height: 1.5;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #61DAFB;
-  text-shadow: -5px 5px 5px rgba(0,0,0,0.25);
-  line-height: 1.5;
+  text-shadow: -5px 5px 5px rgba(0,0,0,0.35);
+
 }
 
 
@@ -195,8 +196,6 @@ https://caniuse.com/#search=background-blend-mode */
 
 section#home {
   background: url('../images/home-background.jpg') no-repeat center center/cover;
-  background-color: rgba(0,0,0,0.75);
-  background-blend-mode: overlay;
 }
 
 section#about {

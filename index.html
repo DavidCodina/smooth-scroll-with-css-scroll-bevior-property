@@ -92,8 +92,20 @@
 		 		See <a href="https://caniuse.com/#search=scroll-behavior" target="_blank">caniuse.com</a>.
 		 		That said, if you try to use it in Safari, it won't break the page. It just doesn't smooth scroll.</p>
 
-		 		<p>For cross-browser compatible approaches use jQuery, or
-				<a href="https://github.com/cferdinandi/smooth-scroll" target="_blank">smooth-scroll</a>.
+		 		<p>For cross-browser compatible approaches use jQuery:<p>
+
+				<pre><code>
+  $('.primary-navigation a').on('click', function(e){
+    if (this.hash !== '') {
+      e.preventDefault();
+      const hash = this.hash;
+      $('html, body').animate({ scrollTop: $(hash).offset().top }, 800);
+    }
+  });
+				</code></pre>
+
+
+				<p>Or use <a href="https://github.com/cferdinandi/smooth-scroll" target="_blank">smooth-scroll</a>.
 		 		Of course, you could implement this feature with vanilla javascript, but it's a lot of code
 		 		(including easing functions, etc.)</p>
 			</article>
