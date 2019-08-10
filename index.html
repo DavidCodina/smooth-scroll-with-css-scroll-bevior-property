@@ -16,8 +16,8 @@
 	========================================================================== -->
 
 
-	<div id="modal-1" class="modal" tabindex="-1" data-micromodal-close aria-hidden="true">
-		<button class="button close" aria-label="Close Modal"><span data-micromodal-close class="close-modal">&times;</span></button>
+	<div id="modal-1" class="modal" tabindex="-1" data-modal-close>
+		<button class="button close-modal"><span data-modal-close>&times;</span></button>
 
 
 		<div class="modal-content">
@@ -32,14 +32,14 @@
 			  The w3schools.com example simply sets:</p>
 
 
-			 	<img class="code-svg-img" src="images/code-example-1.png" alt="code-example-1">
+			 	<img class="code-example-img" src="images/code-example-1.png" alt="code-example-1">
 
 
 			  <p>This works well enough for just smooth scroll. However, if you want to implement
 			  scroll snap, you may need to do things a bit differently:</p>
 
 
-			  <img class="code-svg-img" src="images/code-example-2.png" alt="code-example-2">
+			  <img class="code-example-img" src="images/code-example-2.png" alt="code-example-2">
 
 
 			  <p>The <code>scroll-behavior</code> property is a great feature. The only issue is browser compatibility.
@@ -50,7 +50,7 @@
 			  <p>For cross-browser compatible approaches use jQuery:<p>
 
 
-			  <img class="code-svg-img" src="images/code-example-3.png" alt="code-example-3">
+			  <img class="code-example-img" src="images/code-example-3.png" alt="code-example-3">
 
 
 			  <p>Or use <a href="https://github.com/cferdinandi/smooth-scroll" target="_blank">smooth-scroll</a>.
@@ -86,7 +86,7 @@
 	    <h1>Welcome to DavTek Industries</h1>
 
 			<div class="button-container">
-				<button class="button primary" data-micromodal-trigger="modal-1">View Demo Info</button>
+				<button class="button primary open-modal-button" data-modal-id="modal-1">View Demo Info</button>
 			</div>
 	  </section>
 
@@ -107,9 +107,6 @@
 	</main>
 
 
-	<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
-	<script>
-    MicroModal.init();
-	</script>
+	<script src="scripts/modal.js"></script>
 </body>
 </html>

@@ -11,8 +11,10 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
+  background-color: transparent;
   overflow: auto;
-  z-index: 10; 
+  z-index: 10;
+  transition: background-color 1s linear;
 }
 
 .modal.is-open {
@@ -21,6 +23,8 @@
   top: 0;
   left: 0;
   background-color: rgba(0,0,0,0.7);
+  -webkit-animation: 0.75s linear reveal_background;
+          animation: 0.75s linear reveal_background;
 }
 
 
@@ -30,9 +34,15 @@
 
 
 .modal-content {
+  position: relative;
   margin: 100px auto;
   width: 90%;
   cursor: default;
+}
+
+.modal.is-open .modal-content {
+  -webkit-animation: 0.75s linear slide_down;
+          animation: 0.75s linear slide_down;
 }
 
 .modal-content article {
@@ -78,12 +88,38 @@
 }
 
 
+/* ============================
+    animation keyframes
+============================ */
+
+
+@-webkit-keyframes reveal_background {
+  from { background-color: transparent; }
+  to   { background-color: rgba(0,0,0,0.7); }
+}
+
+@keyframes reveal_background {
+  from { background-color: transparent; }
+  to   { background-color: rgba(0,0,0,0.7); }
+}
+
+@-webkit-keyframes slide_down {
+  from { transform: scale(0.25) translateY(800px); opacity:0; }
+  to   { transform: scale(1)    translateY(0);     opacity:1; }
+}
+
+@keyframes slide_down {
+  from { transform: scale(0.25) translateY(800px); opacity:0; }
+  to   { transform: scale(1)    translateY(0);     opacity:1; }
+}
+
+
 /* =============================================================================
                               .modal-content
 ============================================================================= */
 
 
-.button.close {
+.button.close-modal {
   position: fixed;
   top: 5px;
   right: -5px;
@@ -97,24 +133,24 @@
   background-color:transparent;
 }
 
-.button.close:hover {
+.button.close-modal:hover {
   color: violet;
   text-decoration: none;
   cursor: pointer;
   outline: none;
 }
 
-.button.close:hover span {
+.button.close-modal:hover span {
   color: violet;
   -webkit-text-stroke-color: white;
 }
 
-.button.close:hover,
-.button.close:focus {
+.button.close-modal:hover,
+.button.close-modal:focus {
   outline: none;;
 }
 
-.button.close span {
+.button.close-modal span {
   display: block;
   position: absolute;
   top: 0;
