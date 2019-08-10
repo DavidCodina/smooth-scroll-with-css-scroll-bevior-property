@@ -6,10 +6,61 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Smooth Scroll Demo</title>
   <link rel="stylesheet" href="styles/style.css" />
+	<link rel="stylesheet" href="styles/modal.css" />
 </head>
 
 
 <body>
+	<!-- =========================================================================
+														Modal (with demo info)
+	========================================================================== -->
+
+
+	<div id="modal-1" class="modal" tabindex="-1" data-micromodal-close aria-hidden="true">
+		<button class="button close" aria-label="Close Modal"><span data-micromodal-close class="close-modal">&times;</span></button>
+
+
+		<div class="modal-content">
+			<article>
+			  <h2>About this Demo:</h2>
+
+
+			  <p>This demo uses the CSS
+			  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior" target="_blank">scroll-behavior</a>
+			  property (see also <a href="https://www.w3schools.com/cssref/pr_scroll-behavior.asp" target="_blank">w3schools.com</a>
+			  and <a href="https://css-tricks.com/almanac/properties/s/scroll-behavior/" target="_blank">css-tricks.com</a>.
+			  The w3schools.com example simply sets:</p>
+
+
+			 	<img class="code-svg-img" src="images/code-example-1.png" alt="code-example-1">
+
+
+			  <p>This works well enough for just smooth scroll. However, if you want to implement
+			  scroll snap, you may need to do things a bit differently:</p>
+
+
+			  <img class="code-svg-img" src="images/code-example-2.png" alt="code-example-2">
+
+
+			  <p>The <code>scroll-behavior</code> property is a great feature. The only issue is browser compatibility.
+			  See <a href="https://caniuse.com/#search=scroll-behavior" target="_blank">caniuse.com</a>.
+			  That said, if you try to use it in Safari, it won't break the page. It just doesn't smooth scroll.</p>
+
+
+			  <p>For cross-browser compatible approaches use jQuery:<p>
+
+
+			  <img class="code-svg-img" src="images/code-example-3.png" alt="code-example-3">
+
+
+			  <p>Or use <a href="https://github.com/cferdinandi/smooth-scroll" target="_blank">smooth-scroll</a>.
+			  Of course, you could implement this feature with vanilla javascript, but it's a lot of code
+			  (including easing functions, etc.)</p>
+			</article>
+    </div>
+  </div>
+
+
 	<!-- =========================================================================
 																	<header>
 	========================================================================== -->
@@ -34,81 +85,9 @@
 	  <section id="home">
 	    <h1>Welcome to DavTek Industries</h1>
 
-		 	<article>
-		 		<p>This demo uses the CSS
-		 		<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior" target="_blank">scroll-behavior</a>
-		 		property (see also <a href="https://www.w3schools.com/cssref/pr_scroll-behavior.asp" target="_blank">w3schools.com</a>
-				and <a href="https://css-tricks.com/almanac/properties/s/scroll-behavior/" target="_blank">css-tricks.com</a>.
-				The w3schools.com example simply sets:</p>
-
-
-				<pre><code>
-  html {
-    scroll-behavior: smooth;
-  }
-				</code></pre>
-
-
-				<p>This works well enough for just smooth scroll. However, if you want to implement
-				scroll snap, you may need to do things a bit differently:</p>
-
-
-				<pre><code>
-  /* By setting overflow: hidden on the body,
-  and then setting overflow: scroll on main
-  (i.e., the scroll container), we  reassign
-  the scrollbar to the appropriate parent container.
-  This allows us to implement the scroll snap feature.
-
-  Note: This feature can be super annoying if your
-  sections are longer than the viewport height.
-  I have commented out scroll-snap-type  and
-  scroll-snap-align for now. */
-
-
-  body {
-    height: 100vh;
-    overlow: hidden;
-    ...
-  }
-
-  main {
-    height: 100%;
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    overflow: scroll;
-    ...
-  }
-
-  section {
-    min-height: 100vh;           /* optional */
-    scroll-snap-align: center;
-    ...
-  }
-				</code></pre>
-
-
-				<p>The <code>scroll-behavior</code> property is a great feature. The only issue is browser compatibility.
-		 		See <a href="https://caniuse.com/#search=scroll-behavior" target="_blank">caniuse.com</a>.
-		 		That said, if you try to use it in Safari, it won't break the page. It just doesn't smooth scroll.</p>
-
-		 		<p>For cross-browser compatible approaches use jQuery:<p>
-
-				<pre><code>
-  $('.primary-navigation a').on('click', function(e){
-    if (this.hash !== '') {
-      e.preventDefault();
-      const hash = this.hash;
-      $('html, body').animate({ scrollTop: $(hash).offset().top }, 800);
-    }
-  });
-				</code></pre>
-
-
-				<p>Or use <a href="https://github.com/cferdinandi/smooth-scroll" target="_blank">smooth-scroll</a>.
-		 		Of course, you could implement this feature with vanilla javascript, but it's a lot of code
-		 		(including easing functions, etc.)</p>
-			</article>
+			<div class="button-container">
+				<button class="button primary" data-micromodal-trigger="modal-1">View Demo Info</button>
+			</div>
 	  </section>
 
 
@@ -125,7 +104,12 @@
 	  <section id="contact">
 	    <h1>Contact</h1>
 	  </section>
-
 	</main>
+
+
+	<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+	<script>
+    MicroModal.init();
+	</script>
 </body>
 </html>
