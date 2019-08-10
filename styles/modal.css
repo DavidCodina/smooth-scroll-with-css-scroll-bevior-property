@@ -23,8 +23,8 @@
   top: 0;
   left: 0;
   background-color: rgba(0,0,0,0.7);
-  -webkit-animation: 0.75s linear reveal_background;
-          animation: 0.75s linear reveal_background;
+  -webkit-animation: 0.5s linear reveal_background;
+          animation: 0.5s linear reveal_background;
 }
 
 
@@ -41,8 +41,8 @@
 }
 
 .modal.is-open .modal-content {
-  -webkit-animation: 0.75s linear slide_down;
-          animation: 0.75s linear slide_down;
+  -webkit-animation: 0.75s linear slide_up;
+          animation: 0.75s linear slide_up;
 }
 
 .modal-content article {
@@ -103,14 +103,14 @@
   to   { background-color: rgba(0,0,0,0.7); }
 }
 
-@-webkit-keyframes slide_down {
-  from { transform: scale(0.25) translateY(800px); opacity:0; }
-  to   { transform: scale(1)    translateY(0);     opacity:1; }
+@-webkit-keyframes slide_up {
+  from { transform:  translateY(500px) scale(0.25); }
+  to   { transform:  translateY(0)     scale(1); }
 }
 
-@keyframes slide_down {
-  from { transform: scale(0.25) translateY(800px); opacity:0; }
-  to   { transform: scale(1)    translateY(0);     opacity:1; }
+@keyframes slide_up {
+  from { transform: translateY(500px) scale(0.25); }
+  to   { transform: translateY(0)     scale(1); }
 }
 
 
