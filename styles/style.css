@@ -140,7 +140,7 @@ header {
   width: 100%;
   background: rgba(0,0,0,0.7);
   border-bottom: 0.5px solid #61DAFB;
-  z-index: 1;
+  z-index: 2;
 }
 
 .primary-navigation {
@@ -193,13 +193,22 @@ main {
 
 
 section {
+  position: relative;
   width: 100%;
   min-height: 100vh;
-  padding: 100px 100px 50px 100px;
-  /* scroll-snap-align: center;*/
 }
 
-section h1 {
+section .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 100px 100px 50px 100px;
+  z-index: 1;
+}
+
+section .content h1 {
   margin: 0;
   padding: 0 0 50px 0;
   text-align: center;
@@ -213,12 +222,11 @@ section h1 {
 }
 
 #home h1 {
-  margin-top: 150px;
+  margin-top: 100px;
 }
 
-
 /* ============================
-      <section> images
+  <section> background images
 ============================ */
 
 /* Rather than using .overlay on another div, this is a quick way to create a semi-opaque overlay.
@@ -226,22 +234,50 @@ It's not supported in IE 11. It is supported in Edge 76 (but not 18).
 https://caniuse.com/#search=background-blend-mode */
 
 
-section#home {
+#home::after {
+  display: block;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
   background: url('../images/home-background.jpg') no-repeat center center/cover;
 }
 
-section#about {
+#about::after {
+  display: block;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
   background: url('../images/about-background.jpg') no-repeat center center/cover;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.2);
   background-blend-mode: overlay;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
 }
 
-section#services {
+#services::after {
+  display: block;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
   background: url('../images/services-background.jpg') no-repeat center center/cover;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.2);
   background-blend-mode: overlay;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
 }
 
-section#contact {
+#contact::after {
+  display: block;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
   background: url('../images/contact-background.jpg') no-repeat center center/cover;
 }
