@@ -278,3 +278,18 @@ https://caniuse.com/#search=background-blend-mode */
   content: '';
   background: url('../images/contact-background.jpg') no-repeat center center/cover;
 }
+
+
+
+/* =============================================================================
+	                                  .particles
+	============================================================================= */
+
+
+	.particles {
+	  display: block;
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  z-index: 1;
+	}
